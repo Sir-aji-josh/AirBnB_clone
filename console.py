@@ -12,13 +12,7 @@ from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
 
-
 def parse(arg):
-    """
-    The implementations handle cases where
-    there are curly braces, square brackets,
-    or plain text separated by commas in the input string.
-    """
     curly_braces = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
     if curly_braces is None:
@@ -35,14 +29,11 @@ def parse(arg):
         retl.append(curly_braces.group())
         return retl
 
-
 class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter.
-
     Attributes:
         prompt (str): The command prompt.
-    """
-
+    """ 
     prompt = "(hbnb) "
     __classes = {
         "BaseModel",
